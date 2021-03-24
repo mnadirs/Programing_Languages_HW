@@ -81,10 +81,6 @@ def draw(start_x ,start_y):
                 surface[2 * (start_x) - 2][2 * (start_y) - 3] = "_"
                 start_x = start_x
                 start_y = start_y - 1
-            elif (new_logo[1][2][k] == "L"):
-                surface[2 * (start_x) - 2][2 * (start_y) - 3] = "_"
-                start_x = start_x
-                start_y = start_y - 1
             elif (new_logo[1][2][k] == "U"):
                 surface[2 * (start_x) - 3][2 * (start_y) - 2] = "|"
                 start_x = start_x - 1
