@@ -61,42 +61,66 @@ print(new_logo)
 print(new_engrave)
 print(new_same)
 
+start_x = []
+start_y = []
 #check the logo names and if input is engrave then initiliaz the starting point and draw the logo
 for j in range(len(new_logo)):
     logo_name_l = new_logo[j][1]
-    print(new_logo[j][2][1])
+    #print(new_logo[j][2][1])
     for k in range(len(new_engrave)):
         logo_name_e = new_engrave[k][1]
         if(logo_name_l == logo_name_e):
-            start_x = int(new_engrave[k][2])
-            start_y = int(new_engrave[k][3])
-            print(start_x,start_y)
+            start_x.append(int(new_engrave[k][2]))
+            start_y.append(int(new_engrave[k][3]))
+
+        # if (new_logo[i][2][k] == "L"):
+        #     surface[2 * (start_x) - 2][2 * (start_y) - 3] = "_"
+        #     start_x = start_x
+        #     start_y = start_y - 1
+        # elif (new_logo[i][2][k] == "U"):
+        #     surface[2 * (start_x) - 3][2 * (start_y) - 2] = "|"
+        #     start_x = start_x - 1
+        #     start_y = start_y
+        # elif (new_logo[i][2][k] == "R"):
+        #     surface[2 * (start_x) - 2][2 * (start_y) - 1] = "_"
+        #     start_x = start_x
+        #     start_y = start_y + 1
+        # elif (new_logo[i][2][k] == "D"):
+        #     surface[2 * (start_x) - 1][2 * (start_y) - 2] = "|"
+        #     start_x = start_x + 1
+        #     start_y = start_y
+        # else:
+        #     break
+
+print(start_x)
+print(start_y)
+
 
 
 
 def draw(start_x ,start_y):
-    for i in range(len(new_logo)):
-        for k in range(len(new_logo[i][2])):
-            if (new_logo[1][2][k] == "L"):
-                surface[2 * (start_x) - 2][2 * (start_y) - 3] = "_"
-                start_x = start_x
-                start_y = start_y - 1
-            elif (new_logo[1][2][k] == "U"):
-                surface[2 * (start_x) - 3][2 * (start_y) - 2] = "|"
-                start_x = start_x - 1
-                start_y = start_y
-            elif (new_logo[1][2][k] == "R"):
-                surface[2 * (start_x) - 2][2 * (start_y) - 1] = "_"
-                start_x = start_x
-                start_y = start_y + 1
-            elif (new_logo[1][2][k] == "D"):
-                surface[2 * (start_x) - 1][2 * (start_y) - 2] = "|"
-                start_x = start_x + 1
-                start_y = start_y
-            else:
-                break
-        for row in surface:
-            print(''.join(row))
+ for i in range(len(new_logo)):
+     for l in range(len(new_logo[i][2])):
+         if (new_logo[i][2][l] == "L"):
+             surface[2 * (start_x[i]) - 2][2 * (start_y[i]) - 3] = "_"
+             start_x[i] = start_x[i]
+             start_y[i] = start_y[i] - 1
+         elif(new_logo[i][2][l] == "U"):
+             surface[2 * (start_x[i]) - 3][2 * (start_y[i]) - 2] = "|"
+             start_x[i] = start_x[i] - 1
+             start_y[i] = start_y[i]
+         elif (new_logo[i][2][l] == "R"):
+             surface[2 * (start_x[i]) - 2][2 * (start_y[i]) - 1] = "_"
+             start_x[i] = start_x[i]
+             start_y[i] = start_y[i] + 1
+         elif (new_logo[i][2][l] == "D"):
+             surface[2 * (start_x[i]) - 1][2 * (start_y[i]) - 2] = "|"
+             start_x[i] = start_x[i] + 1
+             start_y[i] = start_y[i]
+         else:
+             break
+     for row in surface:
+         print(''.join(row))
 
 
 # this could be helpfull
@@ -124,6 +148,8 @@ draw(start_x,start_y)
 #     surface[2 * (start_x) - 1][2 * (start_y) - 2] = "|"
 #     start_x = start_x +1
 #     start_y = start_y
+
+
 #print(start_x)
 #print(start_y)
 #surface[1][0] = "|"
